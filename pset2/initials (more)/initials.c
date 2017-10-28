@@ -30,5 +30,5 @@ int main(void)
             }
         }
     }
-    printf("\n");
+    printf("\n"); //Prints the initials
 }
