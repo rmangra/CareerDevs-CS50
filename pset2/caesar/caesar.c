@@ -10,16 +10,16 @@ int main(int argc, string argv[]) {
         return 1;
     }
 
-    // turn key into integer
+    // convert key into integer
     int k = atoi(argv[1]);
     k %= 26;
     printf("key: %i\n", k);
 
     // prompt user for plaintext
-    printf("plaintext:");
+    printf("plaintext: ");
     string p = get_string();
 
-    printf("ciphertext:");
+    printf("ciphertext: ");
 
     // iterate throught each character in the plaintext string
     for (int i = 0; i < strlen(p); i++) {
@@ -31,10 +31,14 @@ int main(int argc, string argv[]) {
             if isupper(p[i]) {
                 // shift plaintext character by key and prints ciphertext
                 printf("%c", (((p[i] - 'A' + k) % 26) + 'A'));
+
+            // check if character is lowercase
             } else {
+                // shift plaintext character by key and prints ciphertext
                 printf("%c", (((p[i] - 'a' + k) % 26) + 'a'));
             }
         } else {
+            // prints all non-alphabetic characters or spaces without ciphering them
             printf("%c", p[i]);
         }
     }
